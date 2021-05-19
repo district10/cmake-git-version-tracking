@@ -2,8 +2,10 @@
 #include <iostream>
 
 #include "git.h"
+#include "extra.h"
 
 int main() {
+    std::cout << "The answer is " << answer() << std::endl;
     if(GitMetadata::Populated()) {
         if(GitMetadata::AnyUncommittedChanges()) {
             std::cerr << "WARN: there were uncommitted changes at build-time." << std::endl;

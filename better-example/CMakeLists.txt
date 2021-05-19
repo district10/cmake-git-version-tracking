@@ -8,7 +8,8 @@ set(POST_CONFIGURE_FILE "${CMAKE_CURRENT_BINARY_DIR}/git.cc")
 include(../git_watcher.cmake)
 
 # Create a library out of the compiled post-configure file.
-add_library(git STATIC ${POST_CONFIGURE_FILE})
+file(GLOB SOURCES *.cc ${POST_CONFIGURE_FILE})
+add_library(git STATIC ${SOURCES})
 target_include_directories(git PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 add_dependencies(git check_git)
 
